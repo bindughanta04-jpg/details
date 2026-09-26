@@ -1,0 +1,811 @@
+
+
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Bindu Supriya | Portfolio</title>
+
+    <!-- Bootstrap 5 -->
+    <link
+        href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+        rel="stylesheet"
+    >
+
+    <!-- Bootstrap Icons -->
+    <link
+        rel="stylesheet"
+        href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css"
+    >
+
+    <!-- Google Font -->
+    <link
+        href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet"
+    >
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: #faf9ff;
+            color: #25223a;
+        }
+
+        /* NAVBAR */
+        .navbar {
+            background: rgba(255, 255, 255, 0.95);
+            box-shadow: 0 2px 15px rgba(0, 0, 0, 0.05);
+        }
+
+        .navbar-brand {
+            font-weight: 700;
+            color: #6c4ccf !important;
+            font-size: 1.4rem;
+        }
+
+        .nav-link {
+            font-weight: 500;
+            color: #333 !important;
+            margin-left: 15px;
+        }
+
+        .nav-link:hover {
+            color: #6c4ccf !important;
+        }
+
+        /* HERO */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            padding: 100px 0 60px;
+            background:
+                radial-gradient(circle at 90% 20%, #e9ddff 0, transparent 25%),
+                radial-gradient(circle at 10% 80%, #f2eaff 0, transparent 25%),
+                #faf9ff;
+        }
+
+        .hero h1 {
+            font-size: clamp(2.5rem, 7vw, 4.8rem);
+            font-weight: 700;
+            line-height: 1.1;
+        }
+
+        .hero h1 span {
+            color: #6c4ccf;
+        }
+
+        .hero-subtitle {
+            color: #666;
+            font-size: 1.1rem;
+            max-width: 600px;
+            line-height: 1.8;
+        }
+
+        .btn-main {
+            background: #6c4ccf;
+            color: white;
+            border-radius: 30px;
+            padding: 12px 28px;
+            border: none;
+            font-weight: 600;
+            transition: 0.3s;
+        }
+
+        .btn-main:hover {
+            background: #5434b3;
+            color: white;
+            transform: translateY(-3px);
+        }
+
+        .btn-outline-main {
+            border: 2px solid #6c4ccf;
+            color: #6c4ccf;
+            border-radius: 30px;
+            padding: 10px 25px;
+            font-weight: 600;
+        }
+
+        .btn-outline-main:hover {
+            background: #6c4ccf;
+            color: white;
+        }
+
+        /* PROFILE IMAGE */
+        .profile-container {
+            position: relative;
+            display: flex;
+            justify-content: center;
+        }
+
+        .profile-circle {
+            width: min(350px, 75vw);
+            height: min(350px, 75vw);
+            border-radius: 50%;
+            background: linear-gradient(135deg, #e5d8ff, #c7b0ff);
+            padding: 12px;
+            box-shadow: 0 20px 50px rgba(108, 76, 207, 0.2);
+        }
+
+        .profile-circle img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 50%;
+            background: white;
+        }
+
+        /* SECTION */
+        section {
+            padding: 90px 0;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+        .section-title h2 {
+            font-weight: 700;
+            font-size: 2.3rem;
+        }
+
+        .section-title span {
+            color: #6c4ccf;
+        }
+
+        .section-title p {
+            color: #777;
+        }
+
+        /* ABOUT */
+        .about-card {
+            background: white;
+            padding: 35px;
+            border-radius: 25px;
+            box-shadow: 0 10px 35px rgba(0, 0, 0, 0.06);
+        }
+
+        /* EDUCATION */
+        .education-card {
+            background: white;
+            border-radius: 20px;
+            padding: 25px;
+            height: 100%;
+            border-left: 5px solid #6c4ccf;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.05);
+            transition: 0.3s;
+        }
+
+        .education-card:hover {
+            transform: translateY(-6px);
+        }
+
+        .education-card i {
+            font-size: 2rem;
+            color: #6c4ccf;
+        }
+
+        .education-card h4 {
+            margin-top: 15px;
+            font-weight: 600;
+        }
+
+        .education-card p {
+            color: #666;
+            margin-bottom: 5px;
+        }
+
+        /* SKILLS */
+        .skill-card {
+            background: white;
+            padding: 25px;
+            border-radius: 20px;
+            text-align: center;
+            height: 100%;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.05);
+            transition: 0.3s;
+        }
+
+        .skill-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .skill-card i {
+            font-size: 2.4rem;
+            color: #6c4ccf;
+            margin-bottom: 15px;
+        }
+
+        /* CONTACT */
+        .contact-box {
+            background: #6c4ccf;
+            color: white;
+            border-radius: 30px;
+            padding: 50px 30px;
+            text-align: center;
+        }
+
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            flex-wrap: wrap;
+            margin-top: 25px;
+        }
+
+        .social-links a {
+            width: 48px;
+            height: 48px;
+            border-radius: 50%;
+            background: white;
+            color: #6c4ccf;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+            font-size: 1.3rem;
+            transition: 0.3s;
+        }
+
+        .social-links a:hover {
+            transform: translateY(-5px);
+        }
+
+        /* FOOTER */
+        footer {
+            text-align: center;
+            padding: 25px;
+            background: #171528;
+            color: #bbb;
+        }
+
+        footer span {
+            color: #b99cff;
+        }
+
+        /* MOBILE */
+        @media (max-width: 768px) {
+
+            .hero {
+                text-align: center;
+                padding-top: 120px;
+            }
+
+            .hero-subtitle {
+                margin: auto;
+                font-size: 1rem;
+            }
+
+            .hero-buttons {
+                justify-content: center;
+            }
+
+            .profile-container {
+                margin-top: 45px;
+            }
+
+            section {
+                padding: 65px 0;
+            }
+
+            .section-title h2 {
+                font-size: 2rem;
+            }
+
+            .about-card {
+                padding: 25px;
+            }
+
+            .navbar .nav-link {
+                margin-left: 0;
+                padding: 10px 0;
+            }
+        }
+
+        @media (max-width: 400px) {
+
+            .hero h1 {
+                font-size: 2.3rem;
+            }
+
+            .btn-main,
+            .btn-outline-main {
+                width: 100%;
+                margin-bottom: 10px;
+            }
+
+            .profile-circle {
+                width: 260px;
+                height: 260px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+<!-- NAVBAR -->
+<nav class="navbar navbar-expand-lg fixed-top">
+    <div class="container">
+
+        <a class="navbar-brand" href="#home">
+            Bindu Supriya
+        </a>
+
+        <button
+            class="navbar-toggler"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#navbarNav"
+        >
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarNav">
+
+            <ul class="navbar-nav ms-auto">
+
+                <li class="nav-item">
+                    <a class="nav-link" href="#home">Home</a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link" href="#about">About</a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link" href="#education">Education</a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link" href="#skills">Skills</a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link" href="#contact">Contact</a>
+                </li>
+
+            </ul>
+
+        </div>
+    </div>
+</nav>
+
+
+<!-- HERO -->
+<section class="hero" id="home">
+
+    <div class="container">
+
+        <div class="row align-items-center">
+
+            <div class="col-lg-7">
+
+                <p class="text-uppercase fw-semibold mb-2"
+                   style="color:#6c4ccf;">
+                    Hello, I'm
+                </p>
+
+                <h1>
+                    Bindu <span>Supriya</span>
+                </h1>
+
+                <h4 class="mt-3 mb-3">
+                    B.Tech AI & Data Science Student
+                </h4>
+
+                <p class="hero-subtitle">
+                    I'm a second-year undergraduate student at
+                    Sir C R R Engineering College, passionate about
+                    technology, learning new skills, and building
+                    my future in the world of Artificial Intelligence
+                    and Data Science.
+                </p>
+
+                <div class="hero-buttons d-flex gap-3 mt-4 flex-wrap">
+
+                    <a href="#about" class="btn btn-main">
+                        Explore My Portfolio
+                    </a>
+
+                    <a href="#contact" class="btn btn-outline-main">
+                        Contact Me
+                    </a>
+
+                </div>
+
+            </div>
+
+
+            <div class="col-lg-5">
+
+                <div class="profile-container">
+
+                    <div class="profile-circle">
+
+                        <!-- Replace this with your actual photo -->
+                        <img
+                            src="profile.jpg"
+                            alt="Bindu Supriya"
+                        >
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ABOUT -->
+<section id="about">
+
+    <div class="container">
+
+        <div class="section-title">
+
+            <h2>About <span>Me</span></h2>
+
+            <p>A little introduction about me</p>
+
+        </div>
+
+
+        <div class="row justify-content-center">
+
+            <div class="col-lg-9">
+
+                <div class="about-card text-center">
+
+                    <h3 class="mb-3">
+                        Hi, I'm Bindu Supriya 👋
+                    </h3>
+
+                    <p>
+                        I am currently pursuing my B.Tech in
+                        Artificial Intelligence and Data Science
+                        at Sir C R R Engineering College.
+                    </p>
+
+                    <p>
+                        I am a curious learner who enjoys exploring
+                        technology and improving my technical,
+                        communication, and problem-solving skills.
+                    </p>
+
+                    <p class="mb-0">
+                        My goal is to continuously learn, work on
+                        meaningful projects, and build a successful
+                        career in the technology field.
+                    </p>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- EDUCATION -->
+<section id="education" style="background:#f2effb;">
+
+    <div class="container">
+
+        <div class="section-title">
+
+            <h2>My <span>Education</span></h2>
+
+            <p>My academic journey</p>
+
+        </div>
+
+
+        <div class="row g-4">
+
+            <!-- School -->
+            <div class="col-md-6 col-lg-3">
+
+                <div class="education-card">
+
+                    <i class="bi bi-book"></i>
+
+                    <h4>School</h4>
+
+                    <p>
+                        Montessori School
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <!-- Intermediate -->
+            <div class="col-md-6 col-lg-3">
+
+                <div class="education-card">
+
+                    <i class="bi bi-mortarboard"></i>
+
+                    <h4>Intermediate</h4>
+
+                    <p>
+                        Pragati College
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <!-- Degree -->
+            <div class="col-md-6 col-lg-3">
+
+                <div class="education-card">
+
+                    <i class="bi bi-laptop"></i>
+
+                    <h4>B.Tech</h4>
+
+                    <p>
+                        Sir C R R Engineering College
+                    </p>
+
+                    <small>
+                        AI & Data Science
+                    </small>
+
+                </div>
+
+            </div>
+
+
+            <!-- CGPA -->
+            <div class="col-md-6 col-lg-3">
+
+                <div class="education-card">
+
+                    <i class="bi bi-star"></i>
+
+                    <h4>CGPA</h4>
+
+                    <p style="font-size:2rem;
+                              font-weight:700;
+                              color:#6c4ccf;">
+                        9.00
+                    </p>
+
+                    <small>
+                        Current Academic Performance
+                    </small>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- SKILLS -->
+<section id="skills">
+
+    <div class="container">
+
+        <div class="section-title">
+
+            <h2>My <span>Skills</span></h2>
+
+            <p>Things I am currently learning and improving</p>
+
+        </div>
+
+
+        <div class="row g-4">
+
+            <div class="col-6 col-lg-3">
+
+                <div class="skill-card">
+
+                    <i class="bi bi-code-slash"></i>
+
+                    <h5>Programming</h5>
+
+                    <p class="text-muted mb-0">
+                        Python
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <div class="col-6 col-lg-3">
+
+                <div class="skill-card">
+
+                    <i class="bi bi-bar-chart"></i>
+
+                    <h5>Data Science</h5>
+
+                    <p class="text-muted mb-0">
+                        AI & Data Science
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <div class="col-6 col-lg-3">
+
+                <div class="skill-card">
+
+                    <i class="bi bi-lightbulb"></i>
+
+                    <h5>Problem Solving</h5>
+
+                    <p class="text-muted mb-0">
+                        Logical Thinking
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <div class="col-6 col-lg-3">
+
+                <div class="skill-card">
+
+                    <i class="bi bi-people"></i>
+
+                    <h5>Communication</h5>
+
+                    <p class="text-muted mb-0">
+                        Continuous Improvement
+                    </p>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- CONTACT -->
+<section id="contact">
+
+    <div class="container">
+
+        <div class="contact-box">
+
+            <h2 class="fw-bold">
+                Let's Connect
+            </h2>
+
+            <p class="mt-3">
+                I'm always interested in learning,
+                connecting, and exploring new opportunities.
+            </p>
+
+
+            <div class="social-links">
+
+                <!-- Instagram -->
+                <a
+                    href="https://www.instagram.com/binduuu__18/"
+                    target="_blank"
+                    aria-label="Instagram"
+                >
+                    <i class="bi bi-instagram"></i>
+                </a>
+
+
+                <!-- LinkedIn -->
+                <a
+                    href="https://www.linkedin.com/"
+                    target="_blank"
+                    aria-label="LinkedIn"
+                >
+                    <i class="bi bi-linkedin"></i>
+                </a>
+
+            </div>
+
+
+            <div class="mt-4">
+
+                <p class="mb-1">
+                    Instagram: @binduuu__18
+                </p>
+
+                <p class="mb-0">
+                    LinkedIn: Bindu Ghanta
+                </p>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- FOOTER -->
+<footer>
+
+    <p class="mb-0">
+        © 2026 <span>Bindu Supriya</span>.
+        All Rights Reserved.
+    </p>
+
+</footer>
+
+
+<!-- Bootstrap JS -->
+<script
+    src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js">
+</script>
+
+</body>
+</html>
+```
+
+### 📱 What this portfolio has
+
+* **Fully responsive** for mobile, tablet, and desktop
+* Bootstrap navbar with mobile hamburger menu
+* Professional hero section
+* About Me section
+* Education timeline/cards
+* CGPA **9.00**
+* AI & Data Science highlighted
+* Skills section
+* Instagram + LinkedIn section
+* Smooth scrolling
+* Mobile-friendly buttons and cards
+* Modern purple professional theme
+* No horizontal scrolling on small screens
+* Profile picture automatically scales on mobile
+
+For the picture, put your actual image in the same folder as the HTML and name it **`profile.jpg`**. Then this part will automatically display it:
+
+```html
+<img src="profile.jpg" alt="Bindu Supriya">
+```
+
+If you're using **Bootstrap**, the responsive grid (`container`, `row`, `col-*`) is what makes the layout adapt between phone, tablet, and desktop.
+
+One thing I'd change before you publish it: add your **actual Python/Java/HTML/CSS projects** to a Projects section. That will make the portfolio look much stronger for a 2nd-year AI & DS student.
